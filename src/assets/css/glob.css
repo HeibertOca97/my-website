@@ -1,0 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&family=Ubuntu&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap");
+
+:root {
+  --text-pr: rgb(0, 28, 155);
+  --cl-df: #273036;
+  --cl-pr: rgb(255, 255, 255);
+  --cl-sd: rgb(26, 23, 23);
+  --bg-pr: rgb(255, 255, 255);
+  --bg-sd: rgb(0, 0, 0);
+  --bg-df: #273036;
+  --z-index: 50;
+  --mw1: 1200px;
+  --mw2: 1400px;
+  --f-size: 1em;
+  --ft-size: 35px;
+  --f-banner-t: 2.2em;
+  --f-banner-p: 1em;
+  --font1: "Ubuntu", sans-serif;
+  --font2: "Anton", sans-serif;
+  --font3: "Otomanopee One", sans-serif;
+}
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--cl-pr);
+  color: var(--cl-sd);
+  font-family: var(--font1);
+  font-size: var(--f-size);
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --f-size: 18px;
+    --f-banner-p: 18px;
+    --f-banner-t: 2.8em;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --f-size: 19px;
+    --f-banner-p: 19px;
+    --f-banner-t: 3.7em;
+  }
+}
+
+@media screen and (min-width: 1248px) {
+  :root {
+    --f-banner-p: 20px;
+    --f-banner-t: 5.6em;
+  }
+}
+
+.mouse {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: rgba(0, 200, 255, 0.61);
+  box-shadow: 0px 0px 25px rgb(0, 200, 255);
+  position: fixed;
+  z-index: 1500;
+  pointer-events: none;
+  display: none;
+}
+
+.effect-mouse {
+  animation: animateText 100ms linear 1s infinite alternate;
+  border-radius: 50%;
+}
+@keyframes animateText {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.component-bg-light {
+  background-color: var(--bg-pr);
+}
+
+.component-bg-dark {
+  background-color: var(--bg-df);
+}
+
+.component-dimesion {
+  width: 100%;
+  height: 100vh;
+  z-index: calc(var(--z-index) - 40);
+}

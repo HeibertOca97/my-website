@@ -1,0 +1,9 @@
+.header {
+  font-family: "Otomanopee One", sans-serif;
+}
+
+.nav-bar {
+  max-width: var(--mw1);
+  margin: auto;
+  border: 1px solid #000;
+}
