@@ -1,10 +1,16 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useRef, useEffect } from "react";
 import { ReactComponent as IconMount } from "../assets/image/mount.svg";
-// import { gsap } from "gsap";
-// import {ReactComponent as IconMount2} from '../assets/image/mount2.svg';
+import { gsap } from "gsap";
 import ImageAuthorCartoon from "../assets/image/mi-caricatura.png";
 
 export function Banner({ data }) {
+  const titleRef = useRef(null);
+  const description1Ref = useRef(null);
+  const description2Ref = useRef(null);
+  const boxImgRef = useRef(null);
+  const imgRef = useRef(null);
+  const imgBottomRef = useRef(null);
+
   const styleImageSVG = {
     position: "absolute",
     bottom: "0px",
@@ -20,7 +26,7 @@ export function Banner({ data }) {
     let newText = [];
     for (let i = 0; i < text.length; i++) {
       newText.push(
-        `<span class="effect-text-banner text-effect">${text[i]}</span>`
+        `<span class="effect-text-banner effect-cl1 text-effect">${text[i]}</span>`
       );
     }
     let textString = newText.join().replace(/,/g, "");
@@ -51,45 +57,85 @@ export function Banner({ data }) {
     };
   };
 
-  const handleModeExplorer = (e) => {
-    e.target.style.display = "none";
-    document.body.style.overflow = "auto";
-  };
+  useEffect(() => {
+    gsap.set(
+      [titleRef.current, description1Ref.current, description2Ref.current],
+      {
+        x: -150,
+        opacity: 0,
+      }
+    );
+    gsap.to(titleRef.current, {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+    });
+    gsap.to(description1Ref.current, {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 1,
+    });
+    gsap.to(description2Ref.current, {
+      x: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 1.5,
+    });
+    gsap.set(boxImgRef.current, { x: 150, opacity: 0 });
+    gsap.to(boxImgRef.current, { x: 0, opacity: 1, duration: 1, delay: 2 });
 
-  (() => {
-    if (window.scrollY < 1) {
-      // document.body.style.overflow = "hidden";
-    }
-  })();
+    gsap.set(imgRef.current, { rotation: 360, scale: 0, opacity: 0 });
+    gsap.to(imgRef.current, {
+      rotation: 0,
+      scale: 1,
+      opacity: 1,
+      duration: 1,
+      delay: 2.5,
+    });
+    gsap.set(imgBottomRef.current, { y: 150, opacity: 0 });
+    gsap.to(imgBottomRef.current, {
+      y: 0,
+      opacity: 1,
+      duration: 1,
+      delay: 2.5,
+    });
+  });
 
   return (
     <Fragment>
       <div className="banner-prev component-dimesion component-bg-light">
         <div className="present-prev">
           <div>
-            <h1 dangerouslySetInnerHTML={addElementHTMLTitle()} />
-            <p dangerouslySetInnerHTML={addElementHTMLProfession()} />
-            <p dangerouslySetInnerHTML={addElementHTMLDetail()} />
-            <button
-              onClick={(e) => handleModeExplorer(e)}
-              className="btn-explore"
-            >
-              Explorar
-            </button>
+            <h1
+              className="title-module1"
+              ref={titleRef}
+              dangerouslySetInnerHTML={addElementHTMLTitle()}
+            />
+            <p
+              className="subtitle-module1"
+              ref={description1Ref}
+              dangerouslySetInnerHTML={addElementHTMLProfession()}
+            />
+            <p
+              className="subtitle-module1"
+              ref={description2Ref}
+              dangerouslySetInnerHTML={addElementHTMLDetail()}
+            />
           </div>
-          <picture>
+          <picture ref={boxImgRef} className="box-logo">
             <img
               className="logo-img"
               src={ImageAuthorCartoon}
               alt={`${data.name} ${data.lastname}`}
               title={`${data.name} ${data.lastname}`}
               loading="lazy"
+              ref={imgRef}
             />
             <span className="box-back-image"></span>
           </picture>
         </div>
-        {/* <IconMount2 className="svgTop"/> */}
-        <IconMount style={styleImageSVG} />
+        <IconMount ref={imgBottomRef} style={styleImageSVG} />
       </div>
     </Fragment>
   );

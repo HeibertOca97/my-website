@@ -1,12 +1,37 @@
 .box-about {
   padding: 50px 0;
+  border-radius: 0px 0px 30px 30px;
+  box-sizing: border-box;
 }
 
-.title-module {
-  color: rgba(146, 146, 146, 0.199);
-  margin: 50px 0px 15px 15px;
-  font-size: var(--f-banner-t);
+.title-module2 {
+  color: rgba(196, 207, 46, 0.247);
+  margin: 50px 0px 60px 15px;
   font-family: var(--font3);
+  font-size: calc(var(--f-size) + 1.1em);
+}
+@media screen and (min-width: 668px) {
+  .title-module2 {
+    font-size: calc(var(--f-size) + 1.8em);
+  }
+}
+@media screen and (min-width: 756px) {
+  .title-module2 {
+    font-size: calc(var(--f-size) + 2.1em);
+  }
+  .box-about {
+    padding: 100px 0 150px 0;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .title-module2 {
+    font-size: calc(var(--f-size) + 2.5em);
+  }
+}
+@media screen and (min-width: 1248px) {
+  .title-module2 {
+    font-size: calc(var(--f-size) + 2.8em);
+  }
 }
 
 .box-main {
@@ -20,6 +45,12 @@
   overflow: hidden;
   display: block;
   box-shadow: 0px 5px 8px rgba(15, 16, 32, 0.644);
+  position: relative;
+}
+@media screen and (min-width: 756px) {
+  .box-mydata picture {
+    max-width: 300px;
+  }
 }
 .box-mydata picture:hover img {
   transform: rotate(-3deg) scale(1.1);
@@ -44,10 +75,10 @@
 }
 
 .box-mydata article p {
-  color: var(--cl-pr);
   width: 90%;
-  margin: auto;
+  margin: 8px auto;
 }
+
 .box-location {
   margin-top: 50px;
 }

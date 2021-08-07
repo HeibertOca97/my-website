@@ -1,58 +1,37 @@
-import React from "react";
-import { getRandomColors } from "../assets/js/eventMouse";
+import React, { useEffect } from "react";
 import { Banner } from "../components/Banner";
+// import { getRandomColors, setTranslateElement } from "../assets/js/eventMouse";
 
 export function Home({ isMobile, autor }) {
-  const handleRemoveMouse = (e) => {
+  const handleRemoveMouse = () => {
     document.getElementById("mouse").style.display = "none";
   };
 
-  // const handleEffectMouse = (e) => {
-  //   // document.getElementById("mouse").setAttribute('style', `top: ${(e.clientY - 5)}px; left:${(e.clientX - 5)}px;`);
-  //   document.getElementById("mouse").style.top = `${e.clientY - 5}px`;
-  //   document.getElementById("mouse").style.left = `${e.clientX - 5}px`;
-  //   document.getElementById("mouse").style.display = "block";
+  const handleEffectMouse = (e) => {
+    if (e.target.matches("iframe")) {
+      handleRemoveMouse();
+      return;
+    }
 
-  //   setTranslateElement({
-  //     x: e.clientX,
-  //     y: e.clientY,
-  //   });
-  // };
-
-  const handleEffectClick = (e) => {
-    const elDiv = document.createElement("div");
-    elDiv.setAttribute(
-      "style",
-      "width:25px; height:25px; position:fixed; z-index:1500; border-radius: 25px;"
-    );
-    document.body.appendChild(elDiv);
-    elDiv.style.border = `1px solid ${getRandomColors()}`;
-    elDiv.style.opacity = "1";
-    elDiv.style.top = e.clientY - 15 + "px";
-    elDiv.style.left = e.clientX - 15 + "px";
-    setTimeout(() => {
-      elDiv.style.opacity = "0";
-      document.body.removeChild(elDiv);
-    }, 200);
+    document.getElementById("mouse").style.top = `${e.clientY - 5}px`;
+    document.getElementById("mouse").style.left = `${e.clientX - 5}px`;
+    document.getElementById("mouse").style.display = "block";
   };
 
   const handleFunctionsForDefault = () => {
     if (isMobile) {
       document.body.style.cursor = "default";
-      document.addEventListener("click", (e) => handleEffectClick(e));
       return;
     }
-    // document.body.style.cursor = "none";
-    // document.addEventListener("mousemove", (e) => handleEffectMouse(e));
-    document.addEventListener("mouseleave", (e) => handleRemoveMouse(e));
+    document.body.style.cursor = "none";
+    document.addEventListener("mousemove", (e) => handleEffectMouse(e));
+    document.addEventListener("mouseleave", handleRemoveMouse);
   };
-  (() => {
-    handleFunctionsForDefault();
-  })();
 
-  return (
-    <>
-      <Banner data={autor} />
-    </>
-  );
+  useEffect(() => {
+    document.addEventListener("DOMContentLoaded", handleFunctionsForDefault);
+    window.addEventListener("resize", handleFunctionsForDefault);
+  });
+
+  return <Banner data={autor} />;
 }

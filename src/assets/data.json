@@ -3,78 +3,46 @@
     "name": "Heibert",
     "lastname": "Ocaña",
     "description": ["Desarrollador web", "Front-End / Back-End"],
-    "pages": {
-      "about": {
-        "title": "Acerca de mi",
-        "body": "Hola, soy Heibert Ocaña estudiante egresado de la Carrera de Ingeniería en Computación y Redes de la Universidad Estatal del sur de Manabí.",
-        "adicionals": [
-          "Me desempeño en distintas áreas de la informática específicamente en Redes de datos y Desarrollo Web.",
-          "En donde he tenido mas experiencia laboral en el desarrollo de sitios y aplicaciones para la web, siendo este el trabajo que mas me apasiona y en el que día a día me estoy preparando mas.",
-          "En la actualidad me encuentro realizando mis propios proyectos personales en los cuales plasmo mi creatividad y conocimiento de todo los trabajos que estoy realizando."
-        ],
-        "url_img": ""
-      },
-      "skill": {
-        "title": "Habilidades & tecnologias",
-        "body": [
-          "Programador Web Frontend",
-          "Programador Web Backend",
-          "Diseño y Maquetación Web",
-          "SEO & WPO",
-          "Autodidacta"
-        ],
-        "url_img": []
-      },
-      "work": {
-        "w1": {
-          "name": "Centro de Emprendimiento, Liderazgo e innovación para el desarrollo",
-          "shortname": "CEMLID",
-          "description": "Desarrollo e Implementación de una aplicación web para automatizar los procesos administrativos y académicos del Centro de emprendimiento, liderazgo e innovación para el desarrollo de la Universidad Estatal del Sur de Manabí.",
-          "weather": "oct 2020 - jun 2021 (9 meses)",
-          "domain": "https://www.cemlid.com",
-          "logo": ""
-        },
-        "w2": {
-          "name": "ASPROINCAM",
-          "shortname": "ASPROINCAM",
-          "description": "Desarrollar e implementar una página web, para brindar información de los servicios y producto que oferta la Asociación de Producción Industrial Cafetera de Manabí “ASPROINCAM”, de la Parroquia Noboa - 24 de Mayo - Manabí.",
-          "weather": "ago 2019 - oct 2019 (3 meses)",
-          "domain": "https://www.asproincam.com",
-          "logo": ""
-        }
-      }
+    "about": {
+      "title": "Acerca de mi",
+      "body": [
+        "me desempeño en distintas áreas de la informática específicamente en Redes de datos y programación.",
+        "Desarrollo sitios y aplicaciones para la web, siendo este el trabajo que mas me apasiona y en el que día a día me estoy preparando.",
+        "En la actualidad me encuentro realizando mis propios proyectos personales, en los cuales plasmo mi conocimiento y creatividad que voy adquiriendo conforme voy trabajando."
+      ]
     },
-    "studies": {
-      "primary": "Lindo Amanecer",
-      "secondary": {
-        "name": "Alejo lascano",
-        "specialization": "Tecnico informatico",
-        "year": "2016"
-      },
-      "university": {
-        "name": "Universidad Estatal del Sur de Manabi",
-        "faculty": "Ciencias Tecnicas",
-        "career": "Ingenieria en Computacion y Redes"
-      }
+    "skills": {
+      "title": "Habilidades",
+      "body": [
+        "Programador Web Frontend",
+        "Programador Web Backend",
+        "Diseño y Maquetación Web",
+        "SEO & WPO",
+        "Normalizador de datos",
+        "Documentador de trabajos",
+        "Autodidacta"
+      ]
     },
     "experiences": {
-      "project": {
-        "pages": {
-          "pg1": {
-            "name": "ASPROINCAM",
-            "year": "2019",
-            "descripcion": "dsdsds ds dsdsds",
-            "url": "https://www.asproincam.com"
-          }
-        },
-        "app": {
-          "ap1": {
-            "name": "CEMLID",
-            "year": "2021",
-            "descripcion": "dsdsds ds dsdsds",
-            "url": "https://www.cemlid.com"
-          }
+      "project1": {
+        "pg1": {
+          "name": "ASPROINCAM",
+          "shortname": "ASPROINCAM",
+          "description": "Desarrollar e implementar una página web, para brindar información de los servicios y producto que oferta la Asociación de Producción Industrial Cafetera de Manabí",
+          "address": "Noboa - 24 de Mayo - Manabí",
+          "weather": "ago 2019 - oct 2019 (3 meses)",
+          "domain": "https://www.asproincam.com",
+          "status": "Expired service"
         }
+      },
+      "project2": {
+        "name": "Centro de Emprendimiento, Liderazgo e innovación para el desarrollo",
+        "shortname": "CEMLID",
+        "description": "Desarrollo e Implementación de una aplicación web para automatizar los procesos administrativos y académicos del Centro de emprendimiento, liderazgo e innovación para el desarrollo de la Universidad Estatal del Sur de Manabí.",
+        "address": "Jipijapa - Manabí",
+        "weather": "oct 2020 - jun 2021 (9 meses)",
+        "domain": "https://www.cemlid.com",
+        "status": "Activo service"
       }
     }
   }
