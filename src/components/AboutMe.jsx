@@ -1,25 +1,20 @@
-import React, { Fragment, useEffect } from "react";
+import React, { useEffect } from "react";
 import { gsap } from "gsap";
+import { addEffectString } from "../assets/js/toString";
+import { SiGooglescholar } from "react-icons/si";
 
 export default function AboutMe({ data }) {
   const { title, body, name, lastname, ImageAuthor } = data;
 
-  const addEffectString = (text) => {
-    let newText = [];
-    for (let i = 0; i < text.length; i++) {
-      newText.push(
-        `<span class="effect-text-banner effect-cl2 text-effect">${text[i]}</span>`
-      );
-    }
-    let textString = newText.join().replace(/,/g, "");
-    return textString;
-  };
-
   const addElementHTMLTitle = () => {
     return {
-      __html: `${addEffectString(title.split(" ")[0])} ${addEffectString(
-        title.split(" ")[1]
-      )} ${addEffectString(title.split(" ")[2])}`,
+      __html: `${addEffectString(
+        title.split(" ")[0],
+        "effect-cl2"
+      )} ${addEffectString(
+        title.split(" ")[1],
+        "effect-cl2"
+      )} ${addEffectString(title.split(" ")[2], "effect-cl2")}`,
     };
   };
 
@@ -48,10 +43,7 @@ export default function AboutMe({ data }) {
       x: -100,
       opacity: 0,
     });
-    gsap.set(".elEffectRight", {
-      x: 100,
-      opacity: 0,
-    });
+
     window.addEventListener("scroll", () => {
       handleEffectElementScrollTop(
         ".elEffectTop",
@@ -79,25 +71,12 @@ export default function AboutMe({ data }) {
           opacity: 0,
         }
       );
-      handleEffectElementScrollTop(
-        ".elEffectRight",
-        {
-          x: 0,
-          duration: 1,
-          opacity: 1,
-        },
-        {
-          x: 100,
-          duration: 1,
-          opacity: 0,
-        }
-      );
     });
-  });
+  }, []);
 
   return (
-    <Fragment>
-      <section id="about" className="box-about component-bg-dark">
+    <section id="about" className="box-about component-bg-dark">
+      <div className="container-module">
         <h3
           className="title-module2 elEffectLeft"
           dangerouslySetInnerHTML={addElementHTMLTitle()}
@@ -118,6 +97,19 @@ export default function AboutMe({ data }) {
                   {key === 0 && `Hola, soy ${name} ${lastname}`} {item}
                 </p>
               ))}
+              <p className="p-cl">
+                <SiGooglescholar /> Educaci&oacute;n
+              </p>
+              <p className="p-cl">
+                2021, Ingeniería en computación y Redes, en{" "}
+                <a
+                  href="http://unesum.edu.ec/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  UNESUM
+                </a>
+              </p>
             </article>
           </div>
           <div className="box-location elEffectTop">
@@ -132,7 +124,7 @@ export default function AboutMe({ data }) {
             ></iframe>
           </div>
         </main>
-      </section>
-    </Fragment>
+      </div>
+    </section>
   );
 }

@@ -19,13 +19,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-around;
+  & > div {
+    max-width: 1248px;
+    color: var(--cl-df);
+    margin: 15px 15px;
+  }
 }
 
-.present-prev > div {
-  max-width: 900px;
-  color: var(--cl-df);
-  margin: 15px 15px;
-}
 .title-module1 {
   margin: 15px auto;
 }
@@ -39,10 +39,10 @@
   max-width: 150px;
   position: relative;
   z-index: 1;
-}
-@media screen and (min-width: 1024px) {
-  .box-logo {
-    max-width: 180px;
+  @media screen and (min-width: 1024px) {
+    & {
+      max-width: 180px;
+    }
   }
 }
 

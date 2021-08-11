@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { Banner } from "../components/Banner";
-// import { getRandomColors, setTranslateElement } from "../assets/js/eventMouse";
 
 export function Home({ isMobile, autor }) {
   const handleRemoveMouse = () => {
@@ -8,7 +7,7 @@ export function Home({ isMobile, autor }) {
   };
 
   const handleEffectMouse = (e) => {
-    if (e.target.matches("iframe")) {
+    if (e.target.matches("iframe") || e.target.matches("a")) {
       handleRemoveMouse();
       return;
     }
@@ -23,13 +22,14 @@ export function Home({ isMobile, autor }) {
       document.body.style.cursor = "default";
       return;
     }
+
     document.body.style.cursor = "none";
     document.addEventListener("mousemove", (e) => handleEffectMouse(e));
     document.addEventListener("mouseleave", handleRemoveMouse);
   };
 
   useEffect(() => {
-    document.addEventListener("DOMContentLoaded", handleFunctionsForDefault);
+    handleFunctionsForDefault();
     window.addEventListener("resize", handleFunctionsForDefault);
   });
 

@@ -5,21 +5,23 @@
 :root {
   --text-pr: rgb(0, 28, 155);
   --cl-df: #273036;
+  --bg-df: var(--cl-df);
   --cl-pr: rgb(255, 255, 255);
   --cl-sd: rgb(26, 23, 23);
   --bg-pr: rgb(255, 255, 255);
   --bg-sd: rgb(0, 0, 0);
-  --bg-df: #273036;
   --bg-cl1: #fffb00cb;
   --bg-cl2: #fffb00e7;
   --z-index: 50;
   --mw1: 1200px;
   --mw2: 1400px;
   --f-size: 1.1em;
+  --shadow-bg: rgba(204, 204, 204, 0.397);
   --ft-size: 35px;
   --font1: "Ubuntu", sans-serif;
   --font2: "Anton", sans-serif;
   --font3: "Otomanopee One", sans-serif;
+  --w-card: 1050px;
 }
 
 *,
@@ -37,14 +39,37 @@ body {
   font-family: var(--font1);
   font-size: var(--f-size);
   scroll-behavior: smooth;
+  a {
+    color: rgb(221, 181, 0);
+  }
+  a:hover {
+    color: rgb(221, 144, 0);
+  }
 }
+body {
+  &::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  /****** 1 ******/
+  &::-webkit-scrollbar-track {
+    background-color: var(--cl-df);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    background-color: var(--bg-cl2);
+    border-radius: 10px;
+  }
+}
+
 .mouse,
 .mouse:hover {
   width: 15px;
   height: 15px;
   border-radius: 50%;
-  background-color: rgba(0, 200, 255, 0.61);
-  box-shadow: 0px 0px 25px rgb(0, 200, 255);
+  background-color: rgba(251, 255, 0, 0.61);
+  box-shadow: 0px 0px 25px rgb(251, 255, 0);
   position: fixed;
   z-index: 1500;
   pointer-events: none;
@@ -55,6 +80,7 @@ body {
   animation: animateText 100ms linear 1s infinite alternate;
   border-radius: 50%;
 }
+
 @keyframes animateText {
   0% {
     opacity: 0;
@@ -115,5 +141,29 @@ body {
   }
   .subtitle-module1 {
     font-size: calc(var(--f-size) + 0.5em);
+  }
+}
+.container-module {
+  @include boxContainer;
+}
+.footer {
+  font-size: 10pt;
+  color: var(--cl-sd);
+  box-shadow: 0px -5px 15px var(--shadow-bg);
+  div {
+    @include boxContainer;
+    box-sizing: border-box;
+    padding: 25px 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    p {
+      margin: 10px;
+    }
+    a {
+      color: var(--cl-sd);
+      font-weight: bold;
+    }
   }
 }

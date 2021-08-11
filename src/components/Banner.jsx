@@ -1,7 +1,8 @@
-import React, { Fragment, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { ReactComponent as IconMount } from "../assets/image/mount.svg";
 import { gsap } from "gsap";
-import ImageAuthorCartoon from "../assets/image/mi-caricatura.png";
+import ImageCaricature from "../assets/image/mycaricature.png";
+import { addEffectString } from "../assets/js/toString";
 
 export function Banner({ data }) {
   const titleRef = useRef(null);
@@ -22,38 +23,39 @@ export function Banner({ data }) {
     return text.split(" ");
   };
 
-  const addEffectString = (text) => {
-    let newText = [];
-    for (let i = 0; i < text.length; i++) {
-      newText.push(
-        `<span class="effect-text-banner effect-cl1 text-effect">${text[i]}</span>`
-      );
-    }
-    let textString = newText.join().replace(/,/g, "");
-    return textString;
-  };
-
   const addElementHTMLTitle = () => {
     return {
-      __html: `${addEffectString(data.name)} ${addEffectString(data.lastname)}`,
+      __html: `${addEffectString(data.name, "effect-cl1")} ${addEffectString(
+        data.lastname,
+        "effect-cl1"
+      )}`,
     };
   };
 
   const addElementHTMLProfession = () => {
     return {
       __html: `${addEffectString(
-        convertStringToArray(data.description[0])[0]
-      )} ${addEffectString(convertStringToArray(data.description[0])[1])}`,
+        convertStringToArray(data.description[0])[0],
+        "effect-cl1"
+      )} ${addEffectString(
+        convertStringToArray(data.description[0])[1],
+        "effect-cl1"
+      )}`,
     };
   };
 
   const addElementHTMLDetail = () => {
     return {
       __html: `${addEffectString(
-        convertStringToArray(data.description[1])[0]
+        convertStringToArray(data.description[1])[0],
+        "effect-cl1"
       )} ${addEffectString(
-        convertStringToArray(data.description[1])[1]
-      )} ${addEffectString(convertStringToArray(data.description[1])[2])}`,
+        convertStringToArray(data.description[1])[1],
+        "effect-cl1"
+      )} ${addEffectString(
+        convertStringToArray(data.description[1])[2],
+        "effect-cl1"
+      )}`,
     };
   };
 
@@ -100,43 +102,43 @@ export function Banner({ data }) {
       duration: 1,
       delay: 2.5,
     });
+    gsap.set("body", { overflow: "hidden" });
+    gsap.to("body", { overflow: "auto", duration: 1, delay: 3.5 });
   });
 
   return (
-    <Fragment>
-      <div className="banner-prev component-dimesion component-bg-light">
-        <div className="present-prev">
-          <div>
-            <h1
-              className="title-module1"
-              ref={titleRef}
-              dangerouslySetInnerHTML={addElementHTMLTitle()}
-            />
-            <p
-              className="subtitle-module1"
-              ref={description1Ref}
-              dangerouslySetInnerHTML={addElementHTMLProfession()}
-            />
-            <p
-              className="subtitle-module1"
-              ref={description2Ref}
-              dangerouslySetInnerHTML={addElementHTMLDetail()}
-            />
-          </div>
-          <picture ref={boxImgRef} className="box-logo">
-            <img
-              className="logo-img"
-              src={ImageAuthorCartoon}
-              alt={`${data.name} ${data.lastname}`}
-              title={`${data.name} ${data.lastname}`}
-              loading="lazy"
-              ref={imgRef}
-            />
-            <span className="box-back-image"></span>
-          </picture>
+    <div className="banner-prev component-dimesion component-bg-light">
+      <div className="present-prev">
+        <div>
+          <h1
+            className="title-module1"
+            ref={titleRef}
+            dangerouslySetInnerHTML={addElementHTMLTitle()}
+          />
+          <p
+            className="subtitle-module1"
+            ref={description1Ref}
+            dangerouslySetInnerHTML={addElementHTMLProfession()}
+          />
+          <p
+            className="subtitle-module1"
+            ref={description2Ref}
+            dangerouslySetInnerHTML={addElementHTMLDetail()}
+          />
         </div>
-        <IconMount ref={imgBottomRef} style={styleImageSVG} />
+        <picture ref={boxImgRef} className="box-logo">
+          <img
+            className="logo-img"
+            src={ImageCaricature}
+            alt={`${data.name} ${data.lastname}`}
+            title={`${data.name} ${data.lastname}`}
+            loading="lazy"
+            ref={imgRef}
+          />
+          <span className="box-back-image"></span>
+        </picture>
       </div>
-    </Fragment>
+      <IconMount ref={imgBottomRef} style={styleImageSVG} />
+    </div>
   );
 }

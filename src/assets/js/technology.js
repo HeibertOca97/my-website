@@ -84,7 +84,7 @@ export const technologyDescription = {
     type: ["Front-End", "Library"],
   },
   mas: {
-    title: "Adicionales",
+    title: "ADICIONALES",
     description:
       "Gestores de paquetes (npm, yarn, composer); Librerias (sweetalert2, chartJS, etc); Programas (Work, Excel, Power Point);​ Sistemas Operativos (Window, Linux); Control de versiones (Git);",
     type: ["Library", "Tool", "Program"],
