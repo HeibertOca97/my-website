@@ -16,7 +16,7 @@ function App() {
       <Home isMobile={isMobile} autor={autor} onLoad={getTitlePage("CV")} />
       <About autor={autor} />
       <Skill autor={autor} />
-      <Project autor={autor} />
+      <Project />
       <Footer contact={contact} />
       <div className="mouse" id="mouse"></div>
     </>

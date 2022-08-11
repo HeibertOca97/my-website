@@ -1,11 +1,8 @@
 import React from "react";
 import { addEffectString } from "../assets/js/toString";
-import ImageProject1 from "../assets/image/project1.jpg";
-import ImageProject2 from "../assets/image/project2.png";
 import { CardWork } from "../components/CardWork";
 
-export function Project({ autor }) {
-  const { project1, project2 } = autor.experiences;
+export function Project() {
 
   return (
     <section className="box-project">
@@ -29,8 +26,6 @@ export function Project({ autor }) {
         </h3>
         <main>
           <CardWork
-            listData={[project1, project2]}
-            Image={[ImageProject1, ImageProject2]}
           />
         </main>
       </div>

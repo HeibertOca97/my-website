@@ -101,7 +101,7 @@ export default function AboutMe({ data }) {
                 <SiGooglescholar /> Educaci&oacute;n
               </p>
               <p className="p-cl">
-                2021, Ingeniería en computación y Redes, en{" "}
+                2021, Ingeniería en Computación y Redes, en{" "}
                 <a
                   href="http://unesum.edu.ec/"
                   target="_blank"

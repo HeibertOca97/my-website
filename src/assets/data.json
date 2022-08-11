@@ -6,25 +6,26 @@
     "about": {
       "title": "Acerca de mi",
       "body": [
-        "me desempeño en distintas áreas de la informática específicamente en Redes de datos y programación.",
-        "Desarrollo sitios y aplicaciones para la web, siendo este el trabajo que mas me apasiona y en el que día a día me estoy especializando.",
+        "- Ecuatoriano - Profesional graduado de la Carrera de Ingeniería en Computación y Redes en la Universidad Estatal del Sur de Manabí.",
+        "Desarrollo sitios y aplicaciones para la web, siendo este el trabajo que mas me apasiona y en el que día a día estoy aprendiendo mas.",
         "En la actualidad me encuentro realizando mis propios proyectos personales, en los cuales plasmo todos mis conocimientos que voy adquiriendo conforme voy trabajando en este campo."
       ]
     },
     "skills": {
       "title": "Habilidades",
       "body": [
-        "Programador Web Frontend",
-        "Programador Web Backend",
-        "Diseño y Maquetación Web",
+        "FullStack Web Developer",
+        "Test-Driven development (TDD)",
+        "Diseño y Maquetación UI/UX",
         "SEO & WPO",
         "Normalizador de datos",
         "Documentador de trabajos",
         "Autodidacta"
       ]
     },
-    "experiences": {
-      "project1": {
+    "experiences": [
+      {
+        "id": 1,
         "name": "Asociación De Producción Industrial Cafeteros De Manabí",
         "shortname": "ASPROINCAM",
         "description": "Desarrollo e implementacion de una Página web, para brindar información de los servicios y producto que oferta \"El Mañanerito\".",
@@ -35,22 +36,23 @@
           "success": false
         },
         "tags": ["WebSite"],
-        "typework": "Autonomo"
+        "typework": "Autónomo - Académico"
       },
-      "project2": {
+      {
+        "id": 2,
         "name": "Centro de Emprendimiento, Liderazgo e innovación para el desarrollo",
         "shortname": "CEMLID",
         "description": "Desarrollo e Implementación de una Aplicación web para automatizar los procesos administrativos y académicos del Centro de emprendimiento de la Universidad Estatal del Sur de Manabí.",
         "weather": "nov 2020 - jun 2021",
         "domain": "https://www.cemlid.com",
         "status": {
-          "message": "Active",
-          "success": true
+          "message": "Expired",
+          "success": false
         },
-        "tags": ["Website", "Web Application"],
-        "typework": "Autonomo"
+        "tags": ["WebSite", "Web Application"],
+        "typework": "Autónomo - Académico"
       }
-    },
+    ],
     "contact": {
       "linkedin": "https://ec.linkedin.com/in/heibert-joseph-oca%C3%B1a-rodr%C3%ADguez-1a29871b7",
       "instagram": "https://www.instagram.com/heibertoca97/"

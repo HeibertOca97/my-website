@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { FaCalendarAlt, FaTags, FaLink } from "react-icons/fa";
 import { MdWork } from "react-icons/md";
+import ImageProject1 from "../assets/image/project1.jpg";
+import ImageProject2 from "../assets/image/project2.png";
+import { autor } from '../assets/data.json';
 
-export function CardWork({ listData, Image }) {
-  const [itemList, setItemList] = useState(listData);
-  const [itemImg, setItemImg] = useState(Image);
+export function CardWork() {
+  const [experiences, setExperiences] = useState([]);
+  const [itemImg, setItemImg] = useState([]);
 
   useEffect(() => {
-    setItemList(listData);
-    setItemImg(Image);
-  }, [listData, Image]);
+    setExperiences(autor.experiences);
+    setItemImg([ImageProject2, ImageProject1]);
+  }, []);
 
   const addStyleString = (list) => {
     if (typeof list !== "object") return;
@@ -21,7 +24,7 @@ export function CardWork({ listData, Image }) {
   };
 
   const CardList = () => {
-    return itemList.map((item, key) => (
+    return experiences.sort((a, b) => a.id > b.id && -1).map((item, key) => (
       <div className="card-project elEffectTop" key={key}>
         <picture>
           <img src={itemImg[key]} title={item.shortname} alt={item.shortname} />
